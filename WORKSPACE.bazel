@@ -1,0 +1,30 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_dotnet",
+    sha256 = "5b641ad0f29684a506c652db5198783a2874adee75e73f5d347ec7b879b6e398",
+    strip_prefix = "rules_dotnet-4849a046b80ab8aabf3647955fe16d73d4f99205",
+    url = "https://github.com/bazelbuild/rules_dotnet/archive/4849a046b80ab8aabf3647955fe16d73d4f99205.tar.gz",
+)
+
+
+load(
+    "@rules_dotnet//dotnet:repositories.bzl",
+    "dotnet_register_toolchains",
+    "rules_dotnet_dependencies",
+)
+
+rules_dotnet_dependencies()
+
+# Here you can specify the version of the .NET SDK to use.
+dotnet_register_toolchains("dotnet", "6.0.100")
+load("@rules_dotnet//dotnet:rules_dotnet_nuget_packages.bzl", "rules_dotnet_nuget_packages")
+
+rules_dotnet_nuget_packages()
+
+load("@rules_dotnet//dotnet:paket2bazel_dependencies.bzl", "paket2bazel_dependencies")
+
+paket2bazel_dependencies()
+
+load("//deps:paket.bzl", "paket")
+paket()

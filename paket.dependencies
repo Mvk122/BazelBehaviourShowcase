@@ -1,0 +1,10 @@
+group mygroup
+    source https://nexus.adsrvr.org/repository/ttd-nuget/index.json
+    source https://nexus.adsrvr.org/repository/ttd-nuget-prerelease/index.json
+    source https://nexus.adsrvr.org/repository/nuget-dot-org-proxy-v3/index.json
+
+    storage: none
+    framework: net6.0
+
+    nuget Microsoft.NETCore.App.Ref 6.0.18
+    nuget System.Text.Json 7.0.0

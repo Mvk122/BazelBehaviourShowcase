@@ -1,0 +1,24 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+
+
+
+csharp_binary(
+    name = "SecondPackage",
+    srcs = glob(
+        ["**/*.cs"],
+        exclude = ["obj/**/*"],
+    ),
+    allow_unsafe_blocks = True,
+    defines = ["BAZEL"],
+    internals_visible_to = [],
+    project_sdk = "web",
+    target_frameworks = ["net6.0"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//FirstPackage:FirstPackage",
+    ],
+    private_deps = [
+        "@paket.mygroup//Microsoft.NETCore.App.Ref:microsoft.netcore.app.ref",
+
+    ]
+)

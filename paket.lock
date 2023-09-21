@@ -1,0 +1,14 @@
+
+
+GROUP mygroup
+STORAGE: NONE
+RESTRICTION: == net6.0
+NUGET
+  remote: https://nexus.adsrvr.org/repository/nuget-dot-org-proxy-v3/index.json
+    Microsoft.NETCore.App.Ref (6.0.18)
+    System.Runtime.CompilerServices.Unsafe (6.0.0)
+    System.Text.Encodings.Web (7.0.0)
+      System.Runtime.CompilerServices.Unsafe (>= 6.0)
+    System.Text.Json (7.0.0)
+      System.Runtime.CompilerServices.Unsafe (>= 6.0)
+      System.Text.Encodings.Web (>= 7.0)
